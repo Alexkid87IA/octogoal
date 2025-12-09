@@ -146,9 +146,9 @@ export default function HeroSection() {
           {/* Highlights Grid - TikTok Videos */}
           <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6">
             {[
-              { url: 'https://www.tiktok.com/embed/v2/7458109088536284448', gradient: 'from-cyan-500/20 to-blue-500/20' },
-              { url: 'https://www.tiktok.com/embed/v2/7449842068779609377', gradient: 'from-orange-500/20 to-pink-500/20' },
-              { url: 'https://www.tiktok.com/embed/v2/7458109534677044512', gradient: 'from-pink-500/20 to-orange-500/20' }
+              { url: 'https://www.tiktok.com/embed/v2/7494748255197089046', gradient: 'from-cyan-500/20 to-blue-500/20' },
+              { url: 'https://www.tiktok.com/embed/v2/7484885513061616918', gradient: 'from-orange-500/20 to-pink-500/20' },
+              { url: 'https://www.tiktok.com/embed/v2/7494769438051503382', gradient: 'from-pink-500/20 to-orange-500/20' }
             ].map((item, index) => (
               <div key={index} className="group relative">
                 <div className={`absolute -inset-0.5 bg-gradient-to-br ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity`}></div>
