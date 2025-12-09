@@ -1,9 +1,20 @@
-import { ArrowRight, Users, Video, Trophy, Zap, Target, Play } from 'lucide-react';
+import { ArrowRight, Users, Video, Trophy, Zap, Target, Play, Volume2, VolumeX } from 'lucide-react';
+import { useState, useRef } from 'react';
 import Button from '../ui/Button';
 import VideoPlaceholder from '../ui/VideoPlaceholder';
 import StatCard from '../ui/StatCard';
 
 export default function HeroSection() {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -101,30 +112,57 @@ export default function HeroSection() {
           {/* Main Video */}
           <div className="relative mb-6 sm:mb-8 group">
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 via-orange-500 to-pink-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
-            <div className="relative">
-              <VideoPlaceholder
-                title="OCTOGOAL CAN - Teaser"
-                subtitle="6 émissions pour une compétition légendaire"
-                aspectRatio="16-9"
-              />
+            <div className="relative rounded-2xl overflow-hidden bg-slate-900/50 backdrop-blur-sm">
+              <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+                <video
+                  ref={videoRef}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                  poster="https://res.cloudinary.com/dafo6bvhc/image/upload/v1765278836/f856acca-f561-47d5-8266-3653b7549a9b_k1i6gn.png"
+                >
+                  <source src="https://www.dropbox.com/scl/fi/13eepbbn82elprfxapt4h/OCTOGOAL-EP2_v01.mp4?rlkey=ge3gjs47dai2ajjx6qjo357w8&raw=1" type="video/mp4" />
+                  Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+
+                {/* Mute/Unmute Button */}
+                <button
+                  onClick={toggleMute}
+                  className="absolute bottom-4 right-4 p-3 rounded-full bg-slate-900/80 backdrop-blur-sm border border-slate-700 hover:bg-slate-800 hover:border-orange-500/50 transition-all duration-300 group/btn z-10"
+                  aria-label={isMuted ? 'Activer le son' : 'Désactiver le son'}
+                >
+                  {isMuted ? (
+                    <VolumeX className="w-6 h-6 text-slate-400 group-hover/btn:text-orange-400 transition-colors" />
+                  ) : (
+                    <Volume2 className="w-6 h-6 text-orange-400 group-hover/btn:text-orange-300 transition-colors" />
+                  )}
+                </button>
+              </div>
             </div>
           </div>
 
-          {/* Highlights Grid */}
+          {/* Highlights Grid - TikTok Videos */}
           <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6">
             {[
-              { title: 'Lives CAN', gradient: 'from-cyan-500/20 to-blue-500/20' },
-              { title: 'Extraits viraux', gradient: 'from-orange-500/20 to-pink-500/20' },
-              { title: 'Contenus sponsorisés', gradient: 'from-pink-500/20 to-orange-500/20' }
+              { url: 'https://www.tiktok.com/embed/v2/7458109088536284448', gradient: 'from-cyan-500/20 to-blue-500/20' },
+              { url: 'https://www.tiktok.com/embed/v2/7449842068779609377', gradient: 'from-orange-500/20 to-pink-500/20' },
+              { url: 'https://www.tiktok.com/embed/v2/7458109534677044512', gradient: 'from-pink-500/20 to-orange-500/20' }
             ].map((item, index) => (
               <div key={index} className="group relative">
                 <div className={`absolute -inset-0.5 bg-gradient-to-br ${item.gradient} rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity`}></div>
-                <div className="relative">
-                  <VideoPlaceholder
-                    title={item.title}
-                    subtitle=""
-                    aspectRatio="9-16"
-                  />
+                <div className="relative rounded-xl overflow-hidden bg-slate-900/50 backdrop-blur-sm border border-slate-800">
+                  <div className="relative w-full" style={{ paddingBottom: '177.78%' }}>
+                    <iframe
+                      src={item.url}
+                      className="absolute inset-0 w-full h-full"
+                      allowFullScreen
+                      scrolling="no"
+                      allow="encrypted-media;"
+                      title={`TikTok Video ${index + 1}`}
+                    />
+                  </div>
                 </div>
               </div>
             ))}
