@@ -84,7 +84,7 @@ export default function VolumeImpactSection() {
             </span>
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl text-slate-300 font-medium max-w-3xl mx-auto leading-relaxed px-4">
-            Une couverture totale de la CAN 2024
+            Une couverture totale de la CAN 2026
           </p>
         </div>
 

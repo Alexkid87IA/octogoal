@@ -59,7 +59,7 @@ export default function HeroSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-500/10 via-pink-500/10 to-orange-500/10 border border-orange-500/30 backdrop-blur-sm mb-6 sm:mb-8">
             <Trophy className="w-4 h-4 text-orange-400" />
             <span className="text-xs sm:text-sm font-bold tracking-wider text-orange-300 uppercase">
-              Dispositif Sponsor CAN 2024
+              Dispositif Sponsor CAN 2026
             </span>
           </div>
 
