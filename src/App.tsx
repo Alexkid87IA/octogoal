@@ -1,4 +1,5 @@
 import Navbar from './components/layout/Navbar';
+import SectionNav from './components/layout/SectionNav';
 import Footer from './components/layout/Footer';
 import HeroSection from './components/sections/HeroSection';
 import StorySection from './components/sections/StorySection';
@@ -15,6 +16,7 @@ function App() {
   return (
     <div className="min-h-screen bg-[#0a0a0f]">
       <Navbar />
+      <SectionNav />
       <HeroSection />
       <StorySection />
 

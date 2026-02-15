@@ -1,5 +1,17 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, Home, BookOpen, Play, Image as ImageIcon, BarChart3, Crosshair, Rocket, Briefcase, Mail } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
+
+const menuItems = [
+  { id: 'hero', label: 'Accueil', num: '01' },
+  { id: 'story', label: "L'Histoire", num: '02' },
+  { id: 'emissions', label: 'Le Show', num: '03' },
+  { id: 'multiformat', label: 'Contenus', num: '04' },
+  { id: 'proof', label: 'Résultats', num: '05' },
+  { id: 'sponsor-projection', label: 'Sponsors', num: '06' },
+  { id: 'projections', label: 'La Suite', num: '07' },
+  { id: 'partnership', label: 'Partenariat', num: '08' },
+  { id: 'contact', label: 'Contact', num: '09' },
+];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,50 +33,12 @@ export default function Navbar() {
     setIsMenuOpen(false);
   };
 
-  const menuItems = [
-    { id: 'hero', label: 'Accueil', icon: Home },
-    { id: 'story', label: "L'Histoire", icon: BookOpen },
-    { id: 'emissions', label: 'Le Show', icon: Play },
-    { id: 'multiformat', label: 'Contenus', icon: ImageIcon },
-    { id: 'proof', label: 'Résultats', icon: BarChart3 },
-    { id: 'sponsor-projection', label: 'Sponsors', icon: Crosshair },
-    { id: 'projections', label: 'Vision', icon: Rocket },
-    { id: 'partnership', label: 'Partenariat', icon: Briefcase },
-    { id: 'contact', label: 'Contact', icon: Mail },
-  ];
-
   return (
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-[#0a0a0f]/90 backdrop-blur-xl border-b border-gray-800/50' : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex justify-between items-center">
-          <img
-            src="https://octogoalmedia.vercel.app/assets/LOGO_OCTOGOAL-Cvm76VuC.png"
-            alt="OCTOGOAL"
-            className="h-8 sm:h-10 cursor-pointer hover:opacity-80 transition-opacity"
-            onClick={() => scrollToSection('hero')}
-          />
-
-          {/* Desktop nav */}
-          <div className="hidden lg:flex items-center gap-1">
-            {menuItems.slice(1, -1).map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="px-3.5 py-2 text-sm font-medium text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-white/[0.04]"
-              >
-                {item.label}
-              </button>
-            ))}
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="ml-3 px-5 py-2.5 text-sm font-bold text-black bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-400 hover:to-blue-400 rounded-lg transition-colors"
-            >
-              Contact
-            </button>
-          </div>
-
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -76,48 +50,89 @@ export default function Navbar() {
               <X className={`absolute inset-0 w-full h-full text-white transition-all duration-300 ${isMenuOpen ? 'opacity-100' : 'opacity-0 -rotate-90 scale-0'}`} />
             </div>
           </button>
+
+          <div className="hidden lg:block w-10" />
+
+          {/* Logo */}
+          <img
+            src="https://octogoalmedia.vercel.app/assets/LOGO_OCTOGOAL-Cvm76VuC.png"
+            alt="OCTOGOAL"
+            className="h-8 sm:h-10 cursor-pointer hover:opacity-80 transition-opacity"
+            onClick={() => scrollToSection('hero')}
+          />
+
+          <div className="w-10" />
         </div>
       </nav>
 
-      {/* Backdrop */}
+      {/* ──────── FULLSCREEN MOBILE MENU ──────── */}
       <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-all duration-300 ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
-        onClick={() => setIsMenuOpen(false)}
-      />
+        className={`fixed inset-0 z-[60] transition-all duration-500 ease-out ${
+          isMenuOpen ? 'visible' : 'invisible pointer-events-none'
+        }`}
+      >
+        {/* Background */}
+        <div
+          className={`absolute inset-0 bg-[#08080c] transition-opacity duration-500 ${
+            isMenuOpen ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          {/* Glows */}
+          <div className="absolute top-1/4 -left-20 w-[300px] h-[300px] bg-pink-600/10 rounded-full blur-[120px]" />
+          <div className="absolute bottom-1/4 -right-20 w-[300px] h-[300px] bg-blue-600/10 rounded-full blur-[120px]" />
+        </div>
 
-      {/* Mobile menu */}
-      <div className={`fixed top-0 right-0 bottom-0 w-full sm:w-80 bg-[#0d0d14] border-l border-gray-800/50 z-50 transition-transform duration-400 ease-out ${isMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="h-full flex flex-col">
-          <div className="flex items-center justify-between p-5 border-b border-gray-800/50">
-            <span className="font-display text-base font-bold text-white">Menu</span>
-            <button onClick={() => setIsMenuOpen(false)} className="w-9 h-9 rounded-lg flex items-center justify-center border border-gray-800 hover:border-gray-600 transition-colors" aria-label="Fermer">
-              <X className="w-4 h-4 text-white" />
-            </button>
-          </div>
-          <div className="flex-1 overflow-y-auto py-3 px-3">
-            {menuItems.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="w-full flex items-center gap-3 p-3.5 rounded-lg hover:bg-white/[0.04] transition-colors animate-fade-in"
-                  style={{ animationDelay: `${index * 40}ms` }}
-                >
-                  <Icon className="w-4 h-4 text-gray-500" />
-                  <span className="text-sm font-medium text-gray-300">{item.label}</span>
-                </button>
-              );
-            })}
-          </div>
-          <div className="p-4 border-t border-gray-800/50">
+        {/* Header */}
+        <div className={`relative flex items-center justify-between px-6 py-4 transition-all duration-500 delay-100 ${
+          isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+        }`}>
+          <img
+            src="https://octogoalmedia.vercel.app/assets/LOGO_OCTOGOAL-Cvm76VuC.png"
+            alt="OCTOGOAL"
+            className="h-8"
+          />
+          <button
+            onClick={() => setIsMenuOpen(false)}
+            className="w-10 h-10 rounded-full flex items-center justify-center bg-white/[0.06] border border-white/[0.1] hover:bg-white/[0.1] transition-colors"
+            aria-label="Fermer"
+          >
+            <X className="w-4 h-4 text-white" />
+          </button>
+        </div>
+
+        {/* Menu items */}
+        <div className="relative flex flex-col justify-center px-8 sm:px-12 h-[calc(100%-140px)]">
+          {menuItems.map((item, i) => (
             <button
-              onClick={() => scrollToSection('contact')}
-              className="w-full py-3 bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-400 hover:to-blue-400 text-black font-bold text-sm rounded-lg transition-colors"
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`group flex items-center gap-4 py-3 border-b border-white/[0.04] transition-all duration-500 ${
+                isMenuOpen
+                  ? 'opacity-100 translate-x-0'
+                  : 'opacity-0 -translate-x-8'
+              }`}
+              style={{ transitionDelay: isMenuOpen ? `${150 + i * 50}ms` : '0ms' }}
             >
-              Nous contacter
+              <span className="text-[10px] font-mono text-gray-700 w-5">{item.num}</span>
+              <span className="font-display text-2xl sm:text-3xl font-black text-white group-active:text-pink-400 transition-colors">
+                {item.label}
+              </span>
+              <ArrowRight className="w-4 h-4 text-gray-700 ml-auto opacity-0 -translate-x-2 group-active:opacity-100 group-active:translate-x-0 transition-all" />
             </button>
-          </div>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <div className={`absolute bottom-0 left-0 right-0 px-8 sm:px-12 pb-8 transition-all duration-500 ${
+          isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+        }`} style={{ transitionDelay: isMenuOpen ? '600ms' : '0ms' }}>
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="w-full py-4 bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-400 hover:to-blue-400 text-black font-bold text-sm rounded-xl transition-colors"
+          >
+            Nous contacter
+          </button>
+          <p className="text-center text-[10px] text-gray-700 mt-4">contact@octogoal.com</p>
         </div>
       </div>
     </>
