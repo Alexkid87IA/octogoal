@@ -129,19 +129,20 @@ export default function MultiformatSection() {
             ]}
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+          <div className="flex gap-4 overflow-x-auto pb-4 pt-6 snap-x snap-mandatory scrollbar-thin">
             {reels.map((r) => (
-              <div key={r.id} className="rounded-2xl border border-gray-800 overflow-hidden bg-black">
-                <iframe
-                  src={`https://www.instagram.com/reel/${r.id}/embed/`}
-                  className="w-full border-0"
-                  style={{ minHeight: '580px' }}
-                  allowFullScreen
-                  loading="lazy"
-                  scrolling="no"
-                  allowTransparency
-                  title="Reel Instagram OCTOGOAL"
-                />
+              <div key={r.id} className="flex-shrink-0 w-[320px] snap-start">
+                <div className="rounded-2xl border border-gray-800 overflow-hidden bg-black" style={{ height: '580px' }}>
+                  <iframe
+                    src={`https://www.instagram.com/reel/${r.id}/embed/`}
+                    className="w-full h-full border-0"
+                    allowFullScreen
+                    loading="lazy"
+                    scrolling="no"
+                    allowTransparency
+                    title="Reel Instagram OCTOGOAL"
+                  />
+                </div>
               </div>
             ))}
           </div>
