@@ -18,7 +18,7 @@ const episodes: Episode[] = [
 ];
 
 export default function EmissionsSection() {
-  const [activeEp, setActiveEp] = useState(0);
+  const [activeEp, setActiveEp] = useState(4);
 
   return (
     <section id="emissions" className="relative py-20 sm:py-28 px-6 sm:px-8 bg-[#0a0a0f] overflow-hidden">
@@ -134,17 +134,22 @@ export default function EmissionsSection() {
             ))}
           </div>
 
-          {/* Short video placeholders grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="relative aspect-[9/16] rounded-2xl bg-gradient-to-br from-gray-800/40 to-gray-900/40 border border-gray-800 overflow-hidden group hover:border-violet-500/20 transition-colors">
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
-                  <div className="w-12 h-12 rounded-full bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
-                    <Play className="w-5 h-5 text-violet-400 ml-0.5" />
-                  </div>
-                  <p className="text-xs font-semibold text-gray-400">Short #{i}</p>
-                  <p className="text-[10px] text-gray-600 mt-1">TikTok / Reel / Short</p>
-                </div>
+          {/* Real YouTube Shorts */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {[
+              { id: 'LmQkQC8cApI', label: 'Short #1' },
+              { id: 'u4zQjLjsJ1Q', label: 'Short #2' },
+              { id: 'Vt6Lj4ZJP1U', label: 'Short #3' },
+            ].map((short) => (
+              <div key={short.id} className="relative aspect-[9/16] rounded-2xl border border-gray-800 overflow-hidden bg-black">
+                <iframe
+                  src={`https://www.youtube.com/embed/${short.id}?rel=0&modestbranding=1`}
+                  className="absolute inset-0 w-full h-full"
+                  allowFullScreen
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  title={short.label}
+                />
               </div>
             ))}
           </div>

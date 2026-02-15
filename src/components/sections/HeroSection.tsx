@@ -55,17 +55,18 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right column - Image placeholder */}
+          {/* Right column - Instagram embed */}
           <div className="animate-fade-in-up delay-200">
-            <div className="relative aspect-[4/3] rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-800 overflow-hidden">
-              {/* Placeholder content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                <div className="w-16 h-16 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center mb-4">
-                  <Play className="w-7 h-7 text-violet-400" />
-                </div>
-                <p className="text-sm font-semibold text-gray-400 mb-1">Image / Visuel Hero</p>
-                <p className="text-xs text-gray-600">Photo Mohamed Henni sur le plateau OCTOGOAL</p>
-              </div>
+            <div className="relative rounded-2xl border border-gray-800 overflow-hidden bg-black">
+              <iframe
+                src="https://www.instagram.com/reel/DS50CsfCA2z/embed/"
+                className="w-full border-0"
+                style={{ minHeight: '480px' }}
+                loading="lazy"
+                allowTransparency
+                scrolling="no"
+                title="OCTOGOAL - Mohamed Henni"
+              />
               {/* Decorative border glow */}
               <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-violet-500/20 via-transparent to-violet-500/10 pointer-events-none" />
             </div>

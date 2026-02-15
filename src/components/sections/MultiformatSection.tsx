@@ -1,4 +1,54 @@
-import { Play, Image as ImageIcon, FileText, Zap, Tv, Smartphone, Globe, Newspaper } from 'lucide-react';
+import { Eye, Heart, Share2, UserPlus, FileText, Globe, Newspaper, Smartphone, TrendingUp, MessageCircle } from 'lucide-react';
+
+const tiktoks = [
+  { id: '7588054979416460566' },
+  { id: '7587482618912853251' },
+  { id: '7587617417564540182' },
+  { id: '7596063493552459030' },
+  { id: '7603026362710068502' },
+];
+
+const reels = [
+  { id: 'DTgwPsDCF0K' },
+  { id: 'DTV4dcriDOI' },
+  { id: 'DTLoTfFiBGa' },
+];
+
+const facebookPosts = [
+  'pfbid0BTwbcm4DPegfMHX3usefxiTRKhFLxrLDDHkWgUnH8TFtkQ6M3F2CQ6pU82Wjs4Jtl',
+  'pfbid0zQ7YqhDfmbeEFYPmcjMUrt8eq2HjKSmX8xzBDz3UGHi9miSYAEvH2i4Ruc7JQYXMl',
+  'pfbid02g3K9bE1ntst4ZtfcxjWQtGfcqW75sigdmrJdsrZxux3HxX5ykAbzDyPkqHb51LJTl',
+];
+
+const instagramPosts = [
+  { id: 'DUgw6FpCGGE' },
+  { id: 'DTq0Z2ZCJMm' },
+];
+
+interface StatBadge {
+  icon: React.ComponentType<{ className?: string }>;
+  value: string;
+  label: string;
+}
+
+function StatBar({ stats, color }: { stats: StatBadge[]; color: string }) {
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6">
+      {stats.map((s) => {
+        const Icon = s.icon;
+        return (
+          <div key={s.label} className="flex items-center gap-2.5 p-3 rounded-xl bg-gray-900/60 border border-gray-800">
+            <Icon className={`w-4 h-4 ${color} flex-shrink-0`} />
+            <div>
+              <p className={`font-display text-sm font-bold ${color}`}>{s.value}</p>
+              <p className="text-[10px] text-gray-500">{s.label}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function MultiformatSection() {
   return (
@@ -11,130 +61,177 @@ export default function MultiformatSection() {
           On tape partout
         </h2>
         <p className="text-base text-gray-500 max-w-2xl mb-16">
-          OCTOGOAL ne se limite pas aux lives. C'est un écosystème complet : vidéos longues, clips viraux, visuels, carrousels, articles SEO — chaque format est pensé pour maximiser la portée et l'engagement.
+          OCTOGOAL ne se limite pas aux lives. C'est un écosystème complet : TikToks viraux, Reels Instagram, posts Facebook, visuels, articles SEO — chaque format est pensé pour maximiser la portée et l'engagement.
         </p>
 
-        {/* ──────── FORMAT GRID ──────── */}
-        <div className="grid lg:grid-cols-2 gap-6 mb-16">
-
-          {/* ── ÉMISSIONS LIVE ── */}
-          <div className="rounded-2xl border border-gray-800 bg-gray-900/30 overflow-hidden">
-            <div className="p-6 sm:p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-violet-500/10 flex items-center justify-center">
-                  <Tv className="w-4 h-4 text-violet-400" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-white">Émissions Live</h3>
-                  <p className="text-xs text-gray-500">60-90 min · YouTube, TikTok, Facebook, Twitch</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                {[1, 2].map((i) => (
-                  <div key={i} className="aspect-video rounded-xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-800 flex items-center justify-center group hover:border-violet-500/20 transition-colors">
-                    <div className="text-center">
-                      <Play className="w-6 h-6 text-violet-400/40 mx-auto mb-1" />
-                      <p className="text-[10px] text-gray-600">Capture live {i}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-400"><span className="font-display font-bold text-white">7</span> émissions CAN</span>
-                <span className="text-gray-500">Pic : <span className="text-violet-400 font-semibold">11.1K</span> viewers</span>
-              </div>
+        {/* ──────── TIKTOK SHOWCASE ──────── */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-9 h-9 rounded-lg bg-indigo-500/10 flex items-center justify-center">
+              <Smartphone className="w-4 h-4 text-indigo-400" />
+            </div>
+            <div>
+              <h3 className="font-display text-lg font-bold text-white">TikTok</h3>
+              <p className="text-xs text-gray-500">@hennidamelio · 48 vidéos CAN 2025</p>
             </div>
           </div>
 
-          {/* ── VIDÉOS MID-FORMAT ── */}
-          <div className="rounded-2xl border border-gray-800 bg-gray-900/30 overflow-hidden">
-            <div className="p-6 sm:p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-pink-500/10 flex items-center justify-center">
-                  <Play className="w-4 h-4 text-pink-400" />
+          <StatBar
+            color="text-indigo-400"
+            stats={[
+              { icon: Eye, value: '31M', label: 'Vues totales' },
+              { icon: Heart, value: '2,24M', label: 'Likes' },
+              { icon: Share2, value: '232K', label: 'Partages' },
+              { icon: UserPlus, value: '172K', label: 'Nouveaux abonnés' },
+            ]}
+          />
+
+          <div className="flex gap-4 overflow-x-auto pb-4 pt-6 snap-x snap-mandatory scrollbar-thin">
+            {tiktoks.map((t) => (
+              <div key={t.id} className="flex-shrink-0 w-[320px] snap-start">
+                <div className="relative rounded-2xl border border-gray-800 overflow-hidden bg-black" style={{ height: '580px' }}>
+                  <iframe
+                    src={`https://www.tiktok.com/embed/v2/${t.id}`}
+                    className="w-full h-full border-0"
+                    allowFullScreen
+                    loading="lazy"
+                    title="TikTok OCTOGOAL"
+                  />
                 </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-white">Vidéos Mid-Format</h3>
-                  <p className="text-xs text-gray-500">10-15 min · Résumés, analyses, débriefs</p>
-                </div>
               </div>
-              <div className="grid grid-cols-3 gap-3 mb-4">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="aspect-video rounded-xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-800 flex items-center justify-center group hover:border-pink-500/20 transition-colors">
-                    <div className="text-center">
-                      <Play className="w-5 h-5 text-pink-400/40 mx-auto mb-1" />
-                      <p className="text-[10px] text-gray-600">Vidéo {i}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-400"><span className="font-display font-bold text-white">38</span> capsules YouTube</span>
-                <span className="text-gray-500"><span className="text-pink-400 font-semibold">5,1M</span> vues · <span className="text-pink-400 font-semibold">57%</span> rétention</span>
-              </div>
+            ))}
+          </div>
+
+          <p className="text-xs text-gray-600 mt-3 text-center">
+            ~<span className="text-indigo-400 font-semibold">646K</span> vues par vidéo en moyenne · <span className="text-indigo-400 font-semibold">196K heures</span> de temps de lecture total
+          </p>
+        </div>
+
+        {/* ──────── INSTAGRAM REELS ──────── */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-9 h-9 rounded-lg bg-pink-500/10 flex items-center justify-center">
+              <Smartphone className="w-4 h-4 text-pink-400" />
+            </div>
+            <div>
+              <h3 className="font-display text-lg font-bold text-white">Reels Instagram</h3>
+              <p className="text-xs text-gray-500">@octogoalofficiel & @hennidamelio</p>
             </div>
           </div>
 
-          {/* ── SHORTS / REELS / TIKTOK ── */}
-          <div className="rounded-2xl border border-gray-800 bg-gray-900/30 overflow-hidden">
-            <div className="p-6 sm:p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-indigo-500/10 flex items-center justify-center">
-                  <Zap className="w-4 h-4 text-indigo-400" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-white">Shorts, Reels & TikToks</h3>
-                  <p className="text-xs text-gray-500">30-90 sec · Le format roi de la viralité</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-4 gap-2 mb-4">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="aspect-[9/16] rounded-xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-800 flex items-center justify-center group hover:border-indigo-500/20 transition-colors">
-                    <div className="text-center">
-                      <Smartphone className="w-4 h-4 text-indigo-400/40 mx-auto mb-1" />
-                      <p className="text-[9px] text-gray-600">Short {i}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-400"><span className="font-display font-bold text-white">48</span> TikToks + Reels</span>
-                <span className="text-gray-500"><span className="text-indigo-400 font-semibold">31M</span> vues · <span className="text-indigo-400 font-semibold">232K</span> partages</span>
-              </div>
-            </div>
-          </div>
+          <StatBar
+            color="text-pink-400"
+            stats={[
+              { icon: Eye, value: '5,1M+', label: 'Vues Reels' },
+              { icon: Heart, value: '130K+', label: 'Likes' },
+              { icon: TrendingUp, value: '57%', label: 'Rétention moyenne' },
+              { icon: Share2, value: '383K', label: 'Impressions / post' },
+            ]}
+          />
 
-          {/* ── VISUELS & CARROUSELS ── */}
-          <div className="rounded-2xl border border-gray-800 bg-gray-900/30 overflow-hidden">
-            <div className="p-6 sm:p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-rose-500/10 flex items-center justify-center">
-                  <ImageIcon className="w-4 h-4 text-rose-400" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-white">Visuels & Carrousels</h3>
-                  <p className="text-xs text-gray-500">Compositions, scores, Top 5, infographies</p>
-                </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+            {reels.map((r) => (
+              <div key={r.id} className="rounded-2xl border border-gray-800 overflow-hidden bg-black">
+                <iframe
+                  src={`https://www.instagram.com/reel/${r.id}/embed/`}
+                  className="w-full border-0"
+                  style={{ minHeight: '580px' }}
+                  allowFullScreen
+                  loading="lazy"
+                  scrolling="no"
+                  allowTransparency
+                  title="Reel Instagram OCTOGOAL"
+                />
               </div>
-              <div className="grid grid-cols-3 gap-3 mb-4">
-                {['Compo', 'Score', 'Top 5'].map((label) => (
-                  <div key={label} className="aspect-square rounded-xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-800 flex items-center justify-center group hover:border-rose-500/20 transition-colors">
-                    <div className="text-center">
-                      <ImageIcon className="w-5 h-5 text-rose-400/40 mx-auto mb-1" />
-                      <p className="text-[10px] text-gray-600">{label}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-400"><span className="font-display font-bold text-white">235</span> photos publiées</span>
-                <span className="text-gray-500"><span className="text-rose-400 font-semibold">383K</span> impressions / post</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* ──────── ARTICLES + SNAPCHAT ROW ──────── */}
+        {/* ──────── FACEBOOK POSTS ──────── */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center">
+              <Globe className="w-4 h-4 text-blue-400" />
+            </div>
+            <div>
+              <h3 className="font-display text-lg font-bold text-white">Facebook</h3>
+              <p className="text-xs text-gray-500">@hennimohamedoffficiel · 333 publications CAN 2025</p>
+            </div>
+          </div>
+
+          <StatBar
+            color="text-blue-400"
+            stats={[
+              { icon: Eye, value: '177,7M', label: 'Impressions' },
+              { icon: Eye, value: '127,4M', label: 'Vues vidéo' },
+              { icon: Heart, value: '4,77M', label: 'Réactions' },
+              { icon: MessageCircle, value: '86,3K', label: 'Commentaires' },
+            ]}
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+            {facebookPosts.map((postId) => (
+              <div key={postId} className="rounded-2xl border border-gray-800 overflow-hidden bg-white">
+                <iframe
+                  src={`https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fhennimohamedoffficiel%2Fposts%2F${postId}&show_text=true&width=500`}
+                  className="w-full border-0"
+                  style={{ minHeight: '600px' }}
+                  loading="lazy"
+                  scrolling="no"
+                  allowFullScreen
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  title="Post Facebook OCTOGOAL"
+                />
+              </div>
+            ))}
+          </div>
+
+          <p className="text-xs text-gray-600 mt-3 text-center">
+            Reels Facebook : <span className="text-blue-400 font-semibold">19K interactions</span> et <span className="text-blue-400 font-semibold">399K impressions</span> en moyenne par post — le format le plus performant
+          </p>
+        </div>
+
+        {/* ──────── INSTAGRAM POSTS / VISUELS ──────── */}
+        <div className="mb-20">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-9 h-9 rounded-lg bg-rose-500/10 flex items-center justify-center">
+              <Smartphone className="w-4 h-4 text-rose-400" />
+            </div>
+            <div>
+              <h3 className="font-display text-lg font-bold text-white">Visuels & Posts Instagram</h3>
+              <p className="text-xs text-gray-500">@octogoalofficiel · Compositions, scores, infographies</p>
+            </div>
+          </div>
+
+          <StatBar
+            color="text-rose-400"
+            stats={[
+              { icon: Eye, value: '235', label: 'Photos publiées' },
+              { icon: TrendingUp, value: '383K', label: 'Impressions / post' },
+              { icon: Heart, value: '8M+', label: 'Interactions totales' },
+              { icon: Share2, value: '452', label: 'Publications totales' },
+            ]}
+          />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+            {instagramPosts.map((post) => (
+              <div key={post.id} className="rounded-2xl border border-gray-800 overflow-hidden bg-black">
+                <iframe
+                  src={`https://www.instagram.com/p/${post.id}/embed/captioned/`}
+                  className="w-full border-0"
+                  style={{ minHeight: '680px' }}
+                  allowFullScreen
+                  loading="lazy"
+                  scrolling="no"
+                  allowTransparency
+                  title="Post Instagram OCTOGOAL"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ──────── ARTICLES + SNAPCHAT ──────── */}
         <div className="grid sm:grid-cols-2 gap-6 mb-16">
           {/* Articles */}
           <div className="rounded-2xl border border-gray-800 bg-gray-900/30 overflow-hidden">
@@ -156,7 +253,7 @@ export default function MultiformatSection() {
                     </div>
                     <div>
                       <p className="text-xs font-medium text-gray-300 line-clamp-1">{title}</p>
-                      <p className="text-[10px] text-gray-600">Article · Image placeholder</p>
+                      <p className="text-[10px] text-gray-600">Article · SEO</p>
                     </div>
                   </div>
                 ))}
@@ -179,6 +276,23 @@ export default function MultiformatSection() {
                   <p className="text-xs text-gray-500">Stories & Shows · Canal de découverte</p>
                 </div>
               </div>
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                {[
+                  { icon: Eye, value: '1,47M', label: 'Vues uniques' },
+                  { icon: UserPlus, value: '+13 671', label: 'Nouveaux followers' },
+                ].map((s) => {
+                  const Icon = s.icon;
+                  return (
+                    <div key={s.label} className="flex items-center gap-2.5 p-3 rounded-xl bg-gray-800/40 border border-gray-800">
+                      <Icon className="w-4 h-4 text-yellow-400 flex-shrink-0" />
+                      <div>
+                        <p className="font-display text-sm font-bold text-yellow-400">{s.value}</p>
+                        <p className="text-[10px] text-gray-500">{s.label}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
               <div className="grid grid-cols-3 gap-2 mb-4">
                 {[1, 2, 3].map((i) => (
                   <div key={i} className="aspect-[9/16] rounded-xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-800 flex items-center justify-center group hover:border-yellow-500/20 transition-colors">
@@ -189,10 +303,9 @@ export default function MultiformatSection() {
                   </div>
                 ))}
               </div>
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-400"><span className="font-display font-bold text-white">13</span> publications</span>
-                <span className="text-gray-500"><span className="text-yellow-400 font-semibold">1,47M</span> vues uniques</span>
-              </div>
+              <p className="text-sm text-gray-400">
+                <span className="font-display font-bold text-white">13</span> publications · Format découverte
+              </p>
             </div>
           </div>
         </div>
