@@ -37,7 +37,7 @@ export default function VisionInfrastructureSection() {
                 aspectRatio="9-16"
               />
             </div>
-            <div className="grid grid-cols-3 gap-4 mt-6">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-4 sm:mt-6">
               <div className="aspect-[9/16] bg-slate-800/50 backdrop-blur-xl rounded-xl border border-blue-500/20 flex items-center justify-center">
                 <p className="text-xs text-slate-600 font-bold text-center px-2">TikTok</p>
               </div>

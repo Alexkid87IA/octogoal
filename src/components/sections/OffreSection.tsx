@@ -88,7 +88,7 @@ export default function OffreSection() {
         {/* Platforms */}
         <div className="rounded-2xl border border-gray-800 p-6 sm:p-8 mb-16">
           <p className="text-xs font-bold tracking-widest uppercase text-gray-600 mb-5">Diffusion sur 6 plateformes</p>
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
             {['YouTube', 'TikTok', 'Instagram', 'Facebook', 'Snapchat', 'X'].map((p) => (
               <div key={p} className="text-center">
                 <p className="text-sm font-semibold text-gray-400">{p}</p>

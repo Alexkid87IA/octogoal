@@ -27,7 +27,7 @@ export default function AdvertisersSection() {
             <span className="text-xs sm:text-sm font-black tracking-widest text-amber-300 uppercase">Dispositifs Commerciaux</span>
             <Star className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
           </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-6 md:mb-8 leading-tight px-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 md:mb-8 leading-tight px-4">
             <span className="text-white">Devenez partenaire</span><br />
             <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
               d'OCTOGOAL
@@ -41,11 +41,11 @@ export default function AdvertisersSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 md:mb-16 lg:mb-20 animate-fade-in-up">
           <div className="relative group">
             <div className="absolute -inset-2 bg-gradient-to-br from-amber-500/40 to-orange-500/40 rounded-3xl blur-3xl group-hover:blur-[4rem] transition-all"></div>
-            <div className="relative bg-gradient-to-br from-amber-600/20 to-orange-600/20 backdrop-blur-xl rounded-3xl p-10 border border-amber-400/30 h-full flex flex-col items-center justify-center text-center">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-6 shadow-2xl">
-                <Users className="w-10 h-10 text-white" />
+            <div className="relative bg-gradient-to-br from-amber-600/20 to-orange-600/20 backdrop-blur-xl rounded-3xl p-6 sm:p-8 lg:p-10 border border-amber-400/30 h-full flex flex-col items-center justify-center text-center">
+              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-4 sm:mb-6 shadow-2xl">
+                <Users className="w-7 h-7 sm:w-10 sm:h-10 text-white" />
               </div>
-              <p className="text-6xl md:text-7xl font-black text-white mb-4">11M+</p>
+              <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-3 sm:mb-4">11M+</p>
               <p className="text-xl font-bold text-amber-200">Audience active</p>
               <p className="text-base text-slate-300 mt-2">Hommes 18-35 ans passionnés de foot</p>
             </div>
@@ -53,11 +53,11 @@ export default function AdvertisersSection() {
 
           <div className="relative group">
             <div className="absolute -inset-2 bg-gradient-to-br from-orange-500/40 to-yellow-500/40 rounded-3xl blur-3xl group-hover:blur-[4rem] transition-all"></div>
-            <div className="relative bg-gradient-to-br from-orange-600/20 to-yellow-600/20 backdrop-blur-xl rounded-3xl p-10 border border-orange-400/30 h-full flex flex-col items-center justify-center text-center">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-yellow-600 flex items-center justify-center mb-6 shadow-2xl">
-                <TrendingUp className="w-10 h-10 text-white" />
+            <div className="relative bg-gradient-to-br from-orange-600/20 to-yellow-600/20 backdrop-blur-xl rounded-3xl p-6 sm:p-8 lg:p-10 border border-orange-400/30 h-full flex flex-col items-center justify-center text-center">
+              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-yellow-600 flex items-center justify-center mb-4 sm:mb-6 shadow-2xl">
+                <TrendingUp className="w-7 h-7 sm:w-10 sm:h-10 text-white" />
               </div>
-              <p className="text-6xl md:text-7xl font-black text-white mb-4">200M+</p>
+              <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-3 sm:mb-4">200M+</p>
               <p className="text-xl font-bold text-orange-200">Impressions/mois</p>
               <p className="text-base text-slate-300 mt-2">Portée organique massive</p>
             </div>
@@ -65,11 +65,11 @@ export default function AdvertisersSection() {
 
           <div className="relative group">
             <div className="absolute -inset-2 bg-gradient-to-br from-yellow-500/40 to-amber-500/40 rounded-3xl blur-3xl group-hover:blur-[4rem] transition-all"></div>
-            <div className="relative bg-gradient-to-br from-yellow-600/20 to-amber-600/20 backdrop-blur-xl rounded-3xl p-10 border border-yellow-400/30 h-full flex flex-col items-center justify-center text-center">
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center mb-6 shadow-2xl">
-                <Target className="w-10 h-10 text-white" />
+            <div className="relative bg-gradient-to-br from-yellow-600/20 to-amber-600/20 backdrop-blur-xl rounded-3xl p-6 sm:p-8 lg:p-10 border border-yellow-400/30 h-full flex flex-col items-center justify-center text-center">
+              <div className="w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center mb-4 sm:mb-6 shadow-2xl">
+                <Target className="w-7 h-7 sm:w-10 sm:h-10 text-white" />
               </div>
-              <p className="text-6xl md:text-7xl font-black text-white mb-4">8%+</p>
+              <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-3 sm:mb-4">8%+</p>
               <p className="text-xl font-bold text-yellow-200">Taux d'engagement</p>
               <p className="text-base text-slate-300 mt-2">10x supérieur à la moyenne</p>
             </div>
@@ -150,14 +150,14 @@ export default function AdvertisersSection() {
         </div>
 
         <div className="mb-20 animate-fade-in-up">
-          <h3 className="text-4xl md:text-5xl font-black text-center mb-12 text-white">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-center mb-8 sm:mb-12 text-white">
             Nos <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">formules partenaires</span>
           </h3>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-br from-amber-500/30 to-orange-500/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all"></div>
-              <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 border border-amber-400/20 hover:border-amber-400/40 transition-all h-full">
+              <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-3xl p-5 sm:p-6 lg:p-8 border border-amber-400/20 hover:border-amber-400/40 transition-all h-full">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shadow-lg">
                     <Award className="w-8 h-8 text-white" />
@@ -194,7 +194,7 @@ export default function AdvertisersSection() {
 
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-br from-orange-500/30 to-yellow-500/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all"></div>
-              <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 border border-orange-400/20 hover:border-orange-400/40 transition-all h-full">
+              <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-3xl p-5 sm:p-6 lg:p-8 border border-orange-400/20 hover:border-orange-400/40 transition-all h-full">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-yellow-600 flex items-center justify-center shadow-lg">
                     <Users className="w-8 h-8 text-white" />
@@ -231,7 +231,7 @@ export default function AdvertisersSection() {
 
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-br from-yellow-500/30 to-amber-500/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all"></div>
-              <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 border border-yellow-400/20 hover:border-yellow-400/40 transition-all h-full">
+              <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-3xl p-5 sm:p-6 lg:p-8 border border-yellow-400/20 hover:border-yellow-400/40 transition-all h-full">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center shadow-lg">
                     <Zap className="w-8 h-8 text-white" />
@@ -268,7 +268,7 @@ export default function AdvertisersSection() {
 
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-br from-indigo-500/30 to-purple-500/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all"></div>
-              <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 border border-indigo-400/20 hover:border-indigo-400/40 transition-all h-full">
+              <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-3xl p-5 sm:p-6 lg:p-8 border border-indigo-400/20 hover:border-indigo-400/40 transition-all h-full">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg">
                     <Video className="w-8 h-8 text-white" />
@@ -305,7 +305,7 @@ export default function AdvertisersSection() {
 
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-br from-purple-500/30 to-violet-500/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all"></div>
-              <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 border border-purple-400/20 hover:border-purple-400/40 transition-all h-full">
+              <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-3xl p-5 sm:p-6 lg:p-8 border border-purple-400/20 hover:border-purple-400/40 transition-all h-full">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center shadow-lg">
                     <Target className="w-8 h-8 text-white" />
@@ -342,7 +342,7 @@ export default function AdvertisersSection() {
 
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-br from-violet-500/30 to-indigo-500/30 rounded-3xl blur-2xl group-hover:blur-3xl transition-all"></div>
-              <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-3xl p-8 border border-violet-400/20 hover:border-violet-400/40 transition-all h-full">
+              <div className="relative bg-slate-800/80 backdrop-blur-xl rounded-3xl p-5 sm:p-6 lg:p-8 border border-violet-400/20 hover:border-violet-400/40 transition-all h-full">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 flex items-center justify-center shadow-lg">
                     <Sparkles className="w-8 h-8 text-white" />
@@ -381,17 +381,17 @@ export default function AdvertisersSection() {
 
         <div className="mb-20 animate-fade-in-up">
           <div className="relative">
-            <div className="absolute -inset-3 bg-gradient-to-r from-amber-500/40 via-orange-500/40 to-yellow-500/40 rounded-[3rem] blur-[4rem]"></div>
-            <div className="relative bg-gradient-to-br from-amber-600/20 to-orange-600/20 backdrop-blur-xl rounded-[3rem] p-12 md:p-16 border border-amber-400/30">
-              <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center w-24 h-24 rounded-3xl bg-gradient-to-br from-amber-500 to-orange-600 mb-8 shadow-2xl">
-                  <Globe className="w-12 h-12 text-white" />
+            <div className="absolute -inset-3 bg-gradient-to-r from-amber-500/40 via-orange-500/40 to-yellow-500/40 rounded-2xl sm:rounded-3xl lg:rounded-[3rem] blur-2xl sm:blur-[4rem]"></div>
+            <div className="relative bg-gradient-to-br from-amber-600/20 to-orange-600/20 backdrop-blur-xl rounded-2xl sm:rounded-3xl lg:rounded-[3rem] p-6 sm:p-8 md:p-12 lg:p-16 border border-amber-400/30">
+              <div className="text-center mb-8 sm:mb-12">
+                <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-amber-500 to-orange-600 mb-6 sm:mb-8 shadow-2xl">
+                  <Globe className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-white" />
                 </div>
-                <h3 className="text-4xl md:text-5xl font-black text-white mb-4">Pack 360° - LE BLITZ</h3>
-                <p className="text-2xl text-amber-200 font-bold">L'offre la plus complète pour un impact maximal</p>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3 sm:mb-4">Pack 360° - LE BLITZ</h3>
+                <p className="text-lg sm:text-xl lg:text-2xl text-amber-200 font-bold">L'offre la plus complète pour un impact maximal</p>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6 mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12">
                 <div className="flex items-start gap-4">
                   <CheckCircle className="w-6 h-6 text-amber-400 flex-shrink-0 mt-1" />
                   <p className="text-lg text-white font-bold">Sponsor live OCTOGOAL</p>
@@ -426,8 +426,8 @@ export default function AdvertisersSection() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-r from-amber-600 to-orange-600 rounded-2xl p-8 border border-amber-400/30">
-                <p className="text-2xl md:text-3xl font-black text-white text-center">
+              <div className="bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl sm:rounded-2xl p-5 sm:p-6 md:p-8 border border-amber-400/30">
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-black text-white text-center">
                   🔥 Impact maximal sur plus de 200 millions d'impressions mensuelles
                 </p>
               </div>
@@ -437,10 +437,10 @@ export default function AdvertisersSection() {
 
         <div className="text-center animate-fade-in-up">
           <div className="mb-12">
-            <p className="text-3xl md:text-4xl font-black text-white mb-6">
+            <p className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 sm:mb-6">
               Prêt à rejoindre l'écosystème OCTOGOAL ?
             </p>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto">
               Contactez-nous pour recevoir notre media kit complet, nos case studies et nos tarifs
             </p>
           </div>

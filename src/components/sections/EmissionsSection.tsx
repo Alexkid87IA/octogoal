@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Play, ExternalLink, Zap, Eye, TrendingUp, Users } from 'lucide-react';
+import { Play, ExternalLink } from 'lucide-react';
 
 interface Episode {
   ep: string;
@@ -30,10 +30,10 @@ export default function EmissionsSection() {
         <div className="mb-24 sm:mb-32">
           <p className="text-xs font-bold tracking-widest uppercase text-pink-400 mb-4">Les émissions live</p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-4">
-            5 épisodes pendant la CAN
+            Le show qui a captivé la CAN 2025
           </h2>
           <p className="text-base text-gray-500 max-w-2xl mb-12">
-            Chaque émission de 60-90 min, diffusée en simultané sur YouTube, TikTok, Facebook et Twitch. Un pic à 11 100 viewers simultanés sur TikTok.
+            Chaque émission de 60-90 min, diffusée en simultané sur YouTube, TikTok, Meta et Twitch. Un pic à 11 100 viewers simultanés sur TikTok.
           </p>
 
           {/* Player */}
@@ -47,19 +47,19 @@ export default function EmissionsSection() {
                 title={episodes[activeEp].title}
               />
             </div>
-            <div className="flex items-center justify-between px-5 py-4 bg-gray-900/80 border-t border-gray-800">
-              <div className="flex items-center gap-3">
-                <span className="text-[11px] font-bold tracking-wider uppercase text-pink-400 bg-pink-500/10 px-2 py-0.5 rounded">{episodes[activeEp].ep}</span>
-                <span className="text-sm font-semibold text-white">{episodes[activeEp].title}</span>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 px-4 sm:px-5 py-3 sm:py-4 bg-gray-900/80 border-t border-gray-800">
+              <div className="flex items-center gap-3 min-w-0">
+                <span className="text-[11px] font-bold tracking-wider uppercase text-pink-400 bg-pink-500/10 px-2 py-0.5 rounded flex-shrink-0">{episodes[activeEp].ep}</span>
+                <span className="text-sm font-semibold text-white truncate">{episodes[activeEp].title}</span>
               </div>
-              <a href={`https://www.youtube.com/watch?v=${episodes[activeEp].videoId}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-xs text-gray-500 hover:text-white transition-colors">
+              <a href={`https://www.youtube.com/watch?v=${episodes[activeEp].videoId}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-xs text-gray-500 hover:text-white transition-colors flex-shrink-0">
                 YouTube <ExternalLink className="w-3 h-3" />
               </a>
             </div>
           </div>
 
           {/* Episode thumbnails */}
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             {episodes.map((ep, i) => (
               <button
                 key={ep.videoId}
@@ -85,25 +85,6 @@ export default function EmissionsSection() {
               </button>
             ))}
           </div>
-
-          {/* Live stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10">
-            {[
-              { icon: Users, value: '11.1K', label: 'Pic viewers TikTok' },
-              { icon: Eye, value: '2 612', label: 'Pic viewers YouTube' },
-              { icon: TrendingUp, value: '2 598', label: 'Pic viewers Facebook' },
-              { icon: Zap, value: '×5', label: 'Audience multipliée' },
-            ].map((s) => {
-              const Icon = s.icon;
-              return (
-                <div key={s.label} className="p-4 sm:p-5 rounded-xl bg-gray-900/50 border border-gray-800 text-center">
-                  <Icon className="w-4 h-4 text-pink-500/60 mx-auto mb-2" />
-                  <p className="font-display text-xl sm:text-2xl font-black text-white">{s.value}</p>
-                  <p className="text-xs text-gray-500 mt-1">{s.label}</p>
-                </div>
-              );
-            })}
-          </div>
         </div>
 
         {/* ──────────────────── SHORTS / CLIPS SECTION ──────────────────── */}
@@ -115,27 +96,11 @@ export default function EmissionsSection() {
             Les clips qui ont explosé
           </h2>
           <p className="text-base text-gray-500 max-w-2xl mb-12">
-            48 capsules TikTok, des dizaines de Reels et Shorts : le format court a été le moteur de la viralité OCTOGOAL avec des chiffres exceptionnels.
+            48 capsules TikTok, des dizaines de Reels et Shorts : le format court a été le moteur de la viralité OCTOGOAL.
           </p>
 
-          {/* Big stats */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
-            {[
-              { value: '31M', label: 'Vues TikTok', desc: '~646K par vidéo' },
-              { value: '2,24M', label: 'Likes', desc: 'Approbation massive' },
-              { value: '232K', label: 'Partages', desc: 'Viralité externe' },
-              { value: '172K', label: 'Nouveaux abonnés', desc: '~3 596 par vidéo' },
-            ].map((s) => (
-              <div key={s.label} className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-pink-500/5 to-gray-900/30 border border-pink-500/10 hover:border-pink-500/20 transition-colors">
-                <p className="font-display text-3xl sm:text-4xl font-black text-pink-400">{s.value}</p>
-                <p className="text-sm font-semibold text-white mt-2">{s.label}</p>
-                <p className="text-xs text-gray-500 mt-0.5">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-
           {/* Real YouTube Shorts */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
               { id: 'LmQkQC8cApI', label: 'Short #1' },
               { id: 'u4zQjLjsJ1Q', label: 'Short #2' },
@@ -154,13 +119,10 @@ export default function EmissionsSection() {
             ))}
           </div>
 
-          {/* Facebook Reels context */}
-          <div className="mt-10 p-6 rounded-2xl bg-gray-900/50 border border-gray-800">
-            <p className="text-sm text-gray-400 leading-relaxed">
-              <span className="text-white font-semibold">Sur Facebook</span>, les Reels (25,5% des posts) dominent avec <span className="text-pink-400 font-semibold">19 009 interactions</span> et <span className="text-pink-400 font-semibold">399 787 impressions</span> en moyenne par post — le format le plus performant de toute la page.
-              Les <span className="text-white font-semibold">333 publications</span> ont généré <span className="text-pink-400 font-semibold">127,4M de vues</span> et <span className="text-pink-400 font-semibold">4,86M d'interactions</span>.
-            </p>
-          </div>
+          {/* Caption */}
+          <p className="text-sm text-gray-400 text-center mt-6">
+            <span className="font-display font-bold text-white">48</span> capsules. <span className="font-display font-bold text-white">35.9M</span> de vues. Le format court qui explose.
+          </p>
         </div>
       </div>
     </section>

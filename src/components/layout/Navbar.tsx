@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Menu, X, Home, Lightbulb, Play, BarChart3, Briefcase, Mail, Rocket, Image as ImageIcon } from 'lucide-react';
+import { Menu, X, Home, BookOpen, Play, Image as ImageIcon, BarChart3, Crosshair, Rocket, Briefcase, Mail } from 'lucide-react';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,12 +23,13 @@ export default function Navbar() {
 
   const menuItems = [
     { id: 'hero', label: 'Accueil', icon: Home },
-    { id: 'concept', label: 'Le Concept', icon: Lightbulb },
-    { id: 'emissions', label: 'Émissions', icon: Play },
+    { id: 'story', label: "L'Histoire", icon: BookOpen },
+    { id: 'emissions', label: 'Le Show', icon: Play },
     { id: 'multiformat', label: 'Contenus', icon: ImageIcon },
-    { id: 'bilan', label: 'Bilan CAN', icon: BarChart3 },
-    { id: 'projections', label: 'Projections', icon: Rocket },
-    { id: 'offre', label: 'Offre', icon: Briefcase },
+    { id: 'proof', label: 'Résultats', icon: BarChart3 },
+    { id: 'sponsor-projection', label: 'Sponsors', icon: Crosshair },
+    { id: 'projections', label: 'Vision', icon: Rocket },
+    { id: 'partnership', label: 'Partenariat', icon: Briefcase },
     { id: 'contact', label: 'Contact', icon: Mail },
   ];
 

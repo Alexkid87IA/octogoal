@@ -240,7 +240,7 @@ export default function ContentUniverseSection() {
             <p className="text-xl text-slate-400">Explorez la diversité de nos contenus</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {categories.map((category, index) => {
               const Icon = category.icon;
               const isExpanded = expandedCategory === index;

@@ -1,51 +1,65 @@
-import { Eye, Heart, Share2, UserPlus, FileText, Globe, Newspaper, Smartphone, TrendingUp, MessageCircle } from 'lucide-react';
+import { Globe, Tv, Smartphone, MessageSquare, Ghost, Monitor } from 'lucide-react';
 
-const tiktoks = [
-  { id: '7588054979416460566' },
-  { id: '7587482618912853251' },
-  { id: '7587617417564540182' },
-  { id: '7596063493552459030' },
-  { id: '7603026362710068502' },
+const platforms = [
+  { name: 'YouTube', icon: Tv, color: 'text-red-400', bg: 'bg-red-500/10', border: 'border-red-500/20', desc: 'Lives · Mid-format · Shorts' },
+  { name: 'TikTok', icon: Smartphone, color: 'text-indigo-400', bg: 'bg-indigo-500/10', border: 'border-indigo-500/20', desc: 'Shorts · Clips viraux' },
+  { name: 'Meta', icon: Globe, color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20', desc: 'Facebook · Instagram · Reels' },
+  { name: 'Snapchat', icon: Ghost, color: 'text-yellow-400', bg: 'bg-yellow-500/10', border: 'border-yellow-500/20', desc: 'Stories · Shows' },
+  { name: 'X', icon: MessageSquare, color: 'text-gray-300', bg: 'bg-gray-500/10', border: 'border-gray-500/20', desc: 'Tweets · Threads · Live' },
+  { name: 'Site internet', icon: Monitor, color: 'text-pink-400', bg: 'bg-pink-500/10', border: 'border-pink-500/20', desc: 'octogoal.media' },
 ];
 
-const reels = [
-  { id: 'DTgwPsDCF0K' },
-  { id: 'DTV4dcriDOI' },
-  { id: 'DTLoTfFiBGa' },
+const calendar = [
+  {
+    timing: 'J-1',
+    label: 'Avant match',
+    color: 'text-amber-400',
+    bg: 'bg-amber-500/5',
+    border: 'border-amber-500/10',
+    dot: 'bg-amber-400',
+    contents: ['Compositions probables', 'Pronostics & sondages', 'Previews vidéo', 'Stories teasing'],
+    platforms: ['Meta', 'TikTok', 'X', 'Snapchat'],
+  },
+  {
+    timing: 'Jour J',
+    label: 'Jour de match',
+    color: 'text-red-400',
+    bg: 'bg-red-500/5',
+    border: 'border-red-500/10',
+    dot: 'bg-red-400',
+    contents: ['Émission live 60-90 min', 'Réactions temps réel', 'Score & mi-temps', 'Clips live instantanés'],
+    platforms: ['YouTube', 'TikTok', 'Meta', 'X'],
+  },
+  {
+    timing: 'J+1',
+    label: 'Après match',
+    color: 'text-blue-400',
+    bg: 'bg-blue-500/5',
+    border: 'border-blue-500/10',
+    dot: 'bg-blue-400',
+    contents: ['Débrief & analyse vidéo', 'Highlights & best-of', 'Carrousels résumé', 'Articles & SEO'],
+    platforms: ['YouTube', 'TikTok', 'Meta', 'Snapchat'],
+  },
+  {
+    timing: 'Continu',
+    label: 'Hors match',
+    color: 'text-green-400',
+    bg: 'bg-green-500/5',
+    border: 'border-green-500/10',
+    dot: 'bg-green-400',
+    contents: ['Infos & transferts', 'Tops & classements', 'Engagement communauté', 'Articles de fond'],
+    platforms: ['Meta', 'X', 'TikTok', 'Snapchat'],
+  },
 ];
 
-const facebookPosts = [
-  'pfbid0BTwbcm4DPegfMHX3usefxiTRKhFLxrLDDHkWgUnH8TFtkQ6M3F2CQ6pU82Wjs4Jtl',
-  'pfbid0zQ7YqhDfmbeEFYPmcjMUrt8eq2HjKSmX8xzBDz3UGHi9miSYAEvH2i4Ruc7JQYXMl',
-  'pfbid02g3K9bE1ntst4ZtfcxjWQtGfcqW75sigdmrJdsrZxux3HxX5ykAbzDyPkqHb51LJTl',
-];
-
-const instagramPosts = [
-  { id: 'DUgw6FpCGGE' },
-  { id: 'DTq0Z2ZCJMm' },
-];
-
-interface StatBadge {
-  icon: React.ComponentType<{ className?: string }>;
-  value: string;
-  label: string;
-}
-
-function StatBar({ stats, color }: { stats: StatBadge[]; color: string }) {
+function PlatformBadge({ name, small }: { name: string; small?: boolean }) {
+  const p = platforms.find((pl) => pl.name === name);
+  if (!p) return null;
+  const Icon = p.icon;
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-6">
-      {stats.map((s) => {
-        const Icon = s.icon;
-        return (
-          <div key={s.label} className="flex items-center gap-2.5 p-3 rounded-xl bg-gray-900/60 border border-gray-800">
-            <Icon className={`w-4 h-4 ${color} flex-shrink-0`} />
-            <div>
-              <p className={`font-display text-sm font-bold ${color}`}>{s.value}</p>
-              <p className="text-[10px] text-gray-500">{s.label}</p>
-            </div>
-          </div>
-        );
-      })}
+    <div className={`inline-flex items-center gap-1.5 ${small ? 'px-2 py-1' : 'px-2.5 py-1.5'} rounded-full ${p.bg} ${p.border} border`}>
+      <Icon className={`${small ? 'w-3 h-3' : 'w-3.5 h-3.5'} ${p.color}`} />
+      <span className={`${small ? 'text-[10px]' : 'text-xs'} font-medium ${p.color}`}>{name}</span>
     </div>
   );
 }
@@ -56,274 +70,111 @@ export default function MultiformatSection() {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
 
       <div className="max-w-7xl mx-auto">
-        <p className="text-xs font-bold tracking-widest uppercase text-pink-400 mb-4">L'univers de contenu</p>
-        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-4">
-          On tape partout
-        </h2>
-        <p className="text-base text-gray-500 max-w-2xl mb-16">
-          OCTOGOAL ne se limite pas aux lives. C'est un écosystème complet : TikToks viraux, Reels Instagram, posts Facebook, visuels, articles SEO — chaque format est pensé pour maximiser la portée et l'engagement.
-        </p>
-
-        {/* ──────── TIKTOK SHOWCASE ──────── */}
-        <div className="mb-20">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-9 h-9 rounded-lg bg-indigo-500/10 flex items-center justify-center">
-              <Smartphone className="w-4 h-4 text-indigo-400" />
-            </div>
-            <div>
-              <h3 className="font-display text-lg font-bold text-white">TikTok</h3>
-              <p className="text-xs text-gray-500">@hennidamelio · 48 vidéos CAN 2025</p>
-            </div>
-          </div>
-
-          <StatBar
-            color="text-indigo-400"
-            stats={[
-              { icon: Eye, value: '31M', label: 'Vues totales' },
-              { icon: Heart, value: '2,24M', label: 'Likes' },
-              { icon: Share2, value: '232K', label: 'Partages' },
-              { icon: UserPlus, value: '172K', label: 'Nouveaux abonnés' },
-            ]}
-          />
-
-          <div className="flex gap-4 overflow-x-auto pb-4 pt-6 snap-x snap-mandatory scrollbar-thin">
-            {tiktoks.map((t) => (
-              <div key={t.id} className="flex-shrink-0 w-[320px] snap-start">
-                <div className="relative rounded-2xl border border-gray-800 overflow-hidden bg-black" style={{ height: '580px' }}>
-                  <iframe
-                    src={`https://www.tiktok.com/embed/v2/${t.id}`}
-                    className="w-full h-full border-0"
-                    allowFullScreen
-                    loading="lazy"
-                    title="TikTok OCTOGOAL"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="text-xs text-gray-600 mt-3 text-center">
-            ~<span className="text-indigo-400 font-semibold">646K</span> vues par vidéo en moyenne · <span className="text-indigo-400 font-semibold">196K heures</span> de temps de lecture total
+        <div className="text-center mb-16">
+          <p className="text-xs font-bold tracking-widest uppercase text-pink-400 mb-4">L'écosystème de contenu</p>
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-4">
+            Une machine à contenu
+          </h2>
+          <p className="text-base text-gray-500 max-w-2xl mx-auto">
+            Chaque match est une opportunité éditoriale. Avant, pendant, après — OCTOGOAL produit et diffuse sur 6 plateformes simultanément.
           </p>
         </div>
 
-        {/* ──────── INSTAGRAM REELS ──────── */}
-        <div className="mb-20">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-9 h-9 rounded-lg bg-pink-500/10 flex items-center justify-center">
-              <Smartphone className="w-4 h-4 text-pink-400" />
-            </div>
-            <div>
-              <h3 className="font-display text-lg font-bold text-white">Reels Instagram</h3>
-              <p className="text-xs text-gray-500">@octogoalofficiel & @hennidamelio</p>
-            </div>
-          </div>
-
-          <StatBar
-            color="text-pink-400"
-            stats={[
-              { icon: Eye, value: '5,1M+', label: 'Vues Reels' },
-              { icon: Heart, value: '130K+', label: 'Likes' },
-              { icon: TrendingUp, value: '57%', label: 'Rétention moyenne' },
-              { icon: Share2, value: '383K', label: 'Impressions / post' },
-            ]}
-          />
-
-          <div className="flex gap-4 overflow-x-auto pb-4 pt-6 snap-x snap-mandatory scrollbar-thin">
-            {reels.map((r) => (
-              <div key={r.id} className="flex-shrink-0 w-[320px] snap-start">
-                <div className="rounded-2xl border border-gray-800 overflow-hidden bg-black" style={{ height: '580px' }}>
-                  <iframe
-                    src={`https://www.instagram.com/reel/${r.id}/embed/`}
-                    className="w-full h-full border-0"
-                    allowFullScreen
-                    loading="lazy"
-                    scrolling="no"
-                    allowTransparency
-                    title="Reel Instagram OCTOGOAL"
-                  />
-                </div>
+        {/* ──────── HUB VISUAL ──────── */}
+        <div className="relative mb-20">
+          {/* Center: Website */}
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              {/* Glow */}
+              <div className="absolute -inset-8 bg-gradient-to-r from-pink-500/10 to-blue-500/10 rounded-full blur-2xl" />
+              <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-br from-pink-500/20 to-blue-500/20 border border-pink-500/30 flex flex-col items-center justify-center">
+                <span className="font-display text-base sm:text-lg font-black tracking-wide bg-gradient-to-r from-pink-400 to-blue-400 bg-clip-text text-transparent">OCTOGOAL</span>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ──────── FACEBOOK POSTS ──────── */}
-        <div className="mb-20">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center">
-              <Globe className="w-4 h-4 text-blue-400" />
-            </div>
-            <div>
-              <h3 className="font-display text-lg font-bold text-white">Facebook</h3>
-              <p className="text-xs text-gray-500">@hennimohamedoffficiel · 333 publications CAN 2025</p>
             </div>
           </div>
 
-          <StatBar
-            color="text-blue-400"
-            stats={[
-              { icon: Eye, value: '177,7M', label: 'Impressions' },
-              { icon: Eye, value: '127,4M', label: 'Vues vidéo' },
-              { icon: Heart, value: '4,77M', label: 'Réactions' },
-              { icon: MessageCircle, value: '86,3K', label: 'Commentaires' },
-            ]}
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-            {facebookPosts.map((postId) => (
-              <div key={postId} className="rounded-2xl border border-gray-800 overflow-hidden bg-white">
-                <iframe
-                  src={`https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fhennimohamedoffficiel%2Fposts%2F${postId}&show_text=true&width=500`}
-                  className="w-full border-0"
-                  style={{ minHeight: '600px' }}
-                  loading="lazy"
-                  scrolling="no"
-                  allowFullScreen
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                  title="Post Facebook OCTOGOAL"
-                />
-              </div>
-            ))}
-          </div>
-
-          <p className="text-xs text-gray-600 mt-3 text-center">
-            Reels Facebook : <span className="text-blue-400 font-semibold">19K interactions</span> et <span className="text-blue-400 font-semibold">399K impressions</span> en moyenne par post — le format le plus performant
-          </p>
-        </div>
-
-        {/* ──────── INSTAGRAM POSTS / VISUELS ──────── */}
-        <div className="mb-20">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-9 h-9 rounded-lg bg-rose-500/10 flex items-center justify-center">
-              <Smartphone className="w-4 h-4 text-rose-400" />
-            </div>
-            <div>
-              <h3 className="font-display text-lg font-bold text-white">Visuels & Posts Instagram</h3>
-              <p className="text-xs text-gray-500">@octogoalofficiel · Compositions, scores, infographies</p>
-            </div>
-          </div>
-
-          <StatBar
-            color="text-rose-400"
-            stats={[
-              { icon: Eye, value: '235', label: 'Photos publiées' },
-              { icon: TrendingUp, value: '383K', label: 'Impressions / post' },
-              { icon: Heart, value: '8M+', label: 'Interactions totales' },
-              { icon: Share2, value: '452', label: 'Publications totales' },
-            ]}
-          />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6 max-w-3xl mx-auto">
-            {instagramPosts.map((post) => (
-              <div key={post.id} className="flex justify-center">
-                <div className="w-full max-w-[400px] rounded-2xl border border-gray-800 overflow-hidden bg-black">
-                  <iframe
-                    src={`https://www.instagram.com/p/${post.id}/embed/captioned/`}
-                    className="w-full border-0"
-                    style={{ height: '720px' }}
-                    allowFullScreen
-                    loading="lazy"
-                    scrolling="yes"
-                    allowTransparency
-                    title="Post Instagram OCTOGOAL"
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ──────── ARTICLES + SNAPCHAT ──────── */}
-        <div className="grid sm:grid-cols-2 gap-6 mb-16">
-          {/* Articles */}
-          <div className="rounded-2xl border border-gray-800 bg-gray-900/30 overflow-hidden">
-            <div className="p-6 sm:p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-amber-500/10 flex items-center justify-center">
-                  <FileText className="w-4 h-4 text-amber-400" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-white">Articles Web</h3>
-                  <p className="text-xs text-gray-500">Site octogoal.media · SEO optimisé</p>
-                </div>
-              </div>
-              <div className="space-y-2 mb-4">
-                {['Analyse : Le parcours de l\'Algérie à la CAN', 'Débrief : Les révélations de la compétition', 'Top : Les meilleurs moments OCTOGOAL'].map((title, i) => (
-                  <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-gray-800/40 border border-gray-800 hover:border-amber-500/20 transition-colors">
-                    <div className="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center flex-shrink-0">
-                      <Newspaper className="w-4 h-4 text-amber-400/40" />
-                    </div>
-                    <div>
-                      <p className="text-xs font-medium text-gray-300 line-clamp-1">{title}</p>
-                      <p className="text-[10px] text-gray-600">Article · SEO</p>
-                    </div>
+          {/* Platform grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {platforms.map((p) => {
+              const Icon = p.icon;
+              return (
+                <div
+                  key={p.name}
+                  className={`group p-4 sm:p-5 rounded-2xl ${p.bg} border ${p.border} hover:border-opacity-50 transition-all text-center`}
+                >
+                  <div className={`w-10 h-10 rounded-xl ${p.bg} border ${p.border} flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform`}>
+                    <Icon className={`w-5 h-5 ${p.color}`} />
                   </div>
-                ))}
-              </div>
-              <p className="text-sm text-gray-400">
-                <span className="font-display font-bold text-white">6+</span> articles sponsorisables · Backlinks SEO · Visibilité permanente
-              </p>
-            </div>
+                  <p className={`font-display text-sm font-bold ${p.color} mb-0.5`}>{p.name}</p>
+                  <p className="text-[10px] text-gray-500">{p.desc}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ──────── CONTENT CALENDAR ──────── */}
+        <div className="mb-12">
+          <div className="text-center mb-10">
+            <h3 className="font-display text-xl sm:text-2xl font-black text-white mb-2">
+              Le calendrier éditorial
+            </h3>
+            <p className="text-sm text-gray-500">
+              Chaque moment a son format. Chaque plateforme a son contenu.
+            </p>
           </div>
 
-          {/* Snapchat */}
-          <div className="rounded-2xl border border-gray-800 bg-gray-900/30 overflow-hidden">
-            <div className="p-6 sm:p-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-9 h-9 rounded-lg bg-yellow-500/10 flex items-center justify-center">
-                  <Globe className="w-4 h-4 text-yellow-400" />
-                </div>
-                <div>
-                  <h3 className="font-display text-lg font-bold text-white">Snapchat Shows</h3>
-                  <p className="text-xs text-gray-500">Stories & Shows · Canal de découverte</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                {[
-                  { icon: Eye, value: '1,47M', label: 'Vues uniques' },
-                  { icon: UserPlus, value: '+13 671', label: 'Nouveaux followers' },
-                ].map((s) => {
-                  const Icon = s.icon;
-                  return (
-                    <div key={s.label} className="flex items-center gap-2.5 p-3 rounded-xl bg-gray-800/40 border border-gray-800">
-                      <Icon className="w-4 h-4 text-yellow-400 flex-shrink-0" />
+          <div className="space-y-4">
+            {calendar.map((row) => (
+              <div
+                key={row.timing}
+                className={`rounded-2xl border ${row.border} ${row.bg} overflow-hidden`}
+              >
+                <div className="p-5 sm:p-6">
+                  {/* Row header */}
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-5 mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-3 h-3 rounded-full ${row.dot} flex-shrink-0`} />
                       <div>
-                        <p className="font-display text-sm font-bold text-yellow-400">{s.value}</p>
-                        <p className="text-[10px] text-gray-500">{s.label}</p>
+                        <span className={`font-display text-base sm:text-lg font-bold ${row.color}`}>{row.timing}</span>
+                        <span className="text-sm text-gray-500 ml-2">— {row.label}</span>
                       </div>
                     </div>
-                  );
-                })}
-              </div>
-              <div className="grid grid-cols-3 gap-2 mb-4">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="aspect-[9/16] rounded-xl bg-gradient-to-br from-gray-800/60 to-gray-900/60 border border-gray-800 flex items-center justify-center group hover:border-yellow-500/20 transition-colors">
-                    <div className="text-center">
-                      <Smartphone className="w-4 h-4 text-yellow-400/40 mx-auto mb-1" />
-                      <p className="text-[9px] text-gray-600">Story {i}</p>
+                    <div className="flex flex-wrap gap-1.5 sm:ml-auto">
+                      {row.platforms.map((pName) => (
+                        <PlatformBadge key={pName} name={pName} small />
+                      ))}
                     </div>
                   </div>
-                ))}
+
+                  {/* Content types */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {row.contents.map((content) => (
+                      <div
+                        key={content}
+                        className="px-3 py-2.5 rounded-xl bg-gray-800/40 border border-gray-800/60"
+                      >
+                        <p className="text-xs font-medium text-gray-300">{content}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <p className="text-sm text-gray-400">
-                <span className="font-display font-bold text-white">13</span> publications · Format découverte
-              </p>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* ──────── TOTAL RECAP BAR ──────── */}
+        {/* ──────── VOLUME RECAP ──────── */}
         <div className="rounded-2xl border border-gray-800 bg-gray-900/30 p-6 sm:p-8">
-          <p className="text-xs font-bold tracking-widest uppercase text-gray-600 mb-6">Bilan multi-format · CAN 2025</p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          <p className="text-xs font-bold tracking-widest uppercase text-gray-600 mb-6 text-center">Volume CAN 2025 — 3 semaines</p>
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
             {[
-              { label: 'Émissions live', value: '7', color: 'text-pink-400' },
-              { label: 'Capsules vidéo', value: '38', color: 'text-pink-400' },
-              { label: 'TikToks / Reels', value: '48+', color: 'text-indigo-400' },
-              { label: 'Photos / Visuels', value: '235', color: 'text-rose-400' },
-              { label: 'Articles web', value: '6+', color: 'text-amber-400' },
-              { label: 'Stories Snap', value: '13', color: 'text-yellow-400' },
+              { value: '7', label: 'Lives', color: 'text-red-400' },
+              { value: '38', label: 'Vidéos', color: 'text-pink-400' },
+              { value: '48+', label: 'Shorts', color: 'text-indigo-400' },
+              { value: '235', label: 'Visuels', color: 'text-blue-400' },
+              { value: '6+', label: 'Articles', color: 'text-amber-400' },
+              { value: '13', label: 'Snaps', color: 'text-yellow-400' },
             ].map((item) => (
               <div key={item.label} className="text-center">
                 <p className={`font-display text-2xl sm:text-3xl font-black ${item.color}`}>{item.value}</p>
@@ -331,14 +182,9 @@ export default function MultiformatSection() {
               </div>
             ))}
           </div>
-          <div className="mt-6 pt-6 border-t border-gray-800 text-center">
-            <p className="text-sm text-gray-400">
-              <span className="font-display font-bold text-white text-lg">452</span> publications au total ·
-              <span className="font-display font-bold text-white text-lg"> 239M</span> impressions ·
-              <span className="font-display font-bold text-white text-lg"> 134M</span> vues ·
-              <span className="font-display font-bold text-white text-lg"> 8M</span> interactions
-            </p>
-          </div>
+          <p className="text-center text-sm text-gray-400 mt-6 pt-6 border-t border-gray-800">
+            <span className="font-display font-bold text-white text-lg">452</span> contenus publiés sur <span className="font-display font-bold text-white text-lg">6</span> plateformes en <span className="font-display font-bold text-white text-lg">3</span> semaines
+          </p>
         </div>
       </div>
     </section>

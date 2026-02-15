@@ -263,7 +263,7 @@ export default function BilanSection() {
         </div>
 
         {/* Platform tabs */}
-        <div className="flex gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 mb-8">
           {tabs.map((t) => (
             <button
               key={t.key}

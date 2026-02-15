@@ -28,10 +28,10 @@ export default function Footer() {
             <p className="text-xs font-bold tracking-widest uppercase text-gray-600 mb-4">Navigation</p>
             <ul className="space-y-2">
               {[
-                { label: 'Le Concept', id: 'concept' },
-                { label: 'Émissions', id: 'emissions' },
-                { label: 'Bilan CAN', id: 'bilan' },
-                { label: 'Offre', id: 'offre' },
+                { label: "L'Histoire", id: 'story' },
+                { label: 'Le Show', id: 'emissions' },
+                { label: 'Résultats', id: 'proof' },
+                { label: 'Partenariat', id: 'partnership' },
                 { label: 'Contact', id: 'contact' },
               ].map((link) => (
                 <li key={link.id}>
@@ -55,7 +55,7 @@ export default function Footer() {
           <div>
             <p className="text-xs font-bold tracking-widest uppercase text-gray-600 mb-4">Réseaux</p>
             <div className="flex flex-wrap gap-2">
-              {['YouTube', 'TikTok', 'Instagram', 'Facebook', 'X'].map((p) => (
+              {['YouTube', 'TikTok', 'Meta', 'Snapchat', 'X'].map((p) => (
                 <span key={p} className="text-xs px-2.5 py-1.5 rounded-md bg-gray-800/50 border border-gray-800 text-gray-500 hover:text-white hover:border-gray-600 transition-colors cursor-pointer">
                   {p}
                 </span>
