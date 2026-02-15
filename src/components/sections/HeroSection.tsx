@@ -9,7 +9,7 @@ export default function HeroSection() {
     <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden bg-[#0a0a0f]">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-violet-600/10 rounded-full blur-[160px]" />
+        <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[900px] h-[600px] bg-pink-600/10 rounded-full blur-[160px]" />
       </div>
 
       {/* Main content */}
@@ -18,14 +18,14 @@ export default function HeroSection() {
           {/* Left column - Text */}
           <div className="animate-fade-in">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 mb-8">
-              <div className="w-1.5 h-1.5 rounded-full bg-violet-400" />
-              <span className="text-xs font-semibold tracking-wider uppercase text-violet-400">Media Kit CAN 2025</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 mb-8">
+              <div className="w-1.5 h-1.5 rounded-full bg-pink-400" />
+              <span className="text-xs font-semibold tracking-wider uppercase text-pink-400">Media Kit CAN 2025</span>
             </div>
 
             {/* Title */}
             <h1 className="font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.95] tracking-tight mb-6">
-              <span className="text-white">OCTO</span><span className="text-violet-400">GOAL</span>
+              <span className="text-white">OCTO</span><span className="bg-gradient-to-r from-pink-500 to-blue-500 bg-clip-text text-transparent">GOAL</span>
             </h1>
 
             {/* Subtitle */}
@@ -40,7 +40,7 @@ export default function HeroSection() {
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => scrollToSection('emissions')}
-                className="group flex items-center gap-2.5 px-6 py-3.5 bg-violet-500 hover:bg-violet-400 text-black font-bold text-sm rounded-xl transition-all duration-200"
+                className="group flex items-center gap-2.5 px-6 py-3.5 bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-400 hover:to-blue-400 text-black font-bold text-sm rounded-xl transition-all duration-200"
               >
                 <Play className="w-4 h-4" />
                 Voir les émissions
@@ -55,20 +55,19 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right column - Instagram embed */}
-          <div className="animate-fade-in-up delay-200">
-            <div className="relative rounded-2xl border border-gray-800 overflow-hidden bg-black">
-              <iframe
-                src="https://www.instagram.com/reel/DS50CsfCA2z/embed/"
-                className="w-full border-0"
-                style={{ minHeight: '480px' }}
-                loading="lazy"
-                allowTransparency
-                scrolling="no"
-                title="OCTOGOAL - Mohamed Henni"
+          {/* Right column - Video */}
+          <div className="animate-fade-in-up delay-200 flex justify-center">
+            <div className="relative w-[340px] rounded-2xl border border-gray-800 overflow-hidden bg-black">
+              <video
+                src="https://renaissance-cdn.b-cdn.net/BIENVENUE%20DANS%20MON%20E%CC%81MISSION%20OCTOGOAL%20C%E2%80%99EST%20L%E2%80%99E%CC%81MISSION%20DU%20PEUPLE%20%F0%9F%8E%99%EF%B8%8F%20%F0%9F%A5%8A%20%E2%9A%BD%EF%B8%8F.mp4"
+                className="w-full h-[600px] object-cover"
+                controls
+                playsInline
+                preload="metadata"
+                poster=""
               />
               {/* Decorative border glow */}
-              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-violet-500/20 via-transparent to-violet-500/10 pointer-events-none" />
+              <div className="absolute -inset-px rounded-2xl bg-gradient-to-br from-pink-500/20 via-transparent to-blue-500/10 pointer-events-none" />
             </div>
           </div>
         </div>

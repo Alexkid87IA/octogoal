@@ -56,7 +56,7 @@ export default function MultiformatSection() {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
 
       <div className="max-w-7xl mx-auto">
-        <p className="text-xs font-bold tracking-widest uppercase text-violet-400 mb-4">L'univers de contenu</p>
+        <p className="text-xs font-bold tracking-widest uppercase text-pink-400 mb-4">L'univers de contenu</p>
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-4">
           On tape partout
         </h2>
@@ -213,19 +213,21 @@ export default function MultiformatSection() {
             ]}
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6 max-w-3xl mx-auto">
             {instagramPosts.map((post) => (
-              <div key={post.id} className="rounded-2xl border border-gray-800 overflow-hidden bg-black">
-                <iframe
-                  src={`https://www.instagram.com/p/${post.id}/embed/captioned/`}
-                  className="w-full border-0"
-                  style={{ minHeight: '680px' }}
-                  allowFullScreen
-                  loading="lazy"
-                  scrolling="no"
-                  allowTransparency
-                  title="Post Instagram OCTOGOAL"
-                />
+              <div key={post.id} className="flex justify-center">
+                <div className="w-full max-w-[400px] rounded-2xl border border-gray-800 overflow-hidden bg-black">
+                  <iframe
+                    src={`https://www.instagram.com/p/${post.id}/embed/captioned/`}
+                    className="w-full border-0"
+                    style={{ height: '720px' }}
+                    allowFullScreen
+                    loading="lazy"
+                    scrolling="yes"
+                    allowTransparency
+                    title="Post Instagram OCTOGOAL"
+                  />
+                </div>
               </div>
             ))}
           </div>
@@ -315,7 +317,7 @@ export default function MultiformatSection() {
           <p className="text-xs font-bold tracking-widest uppercase text-gray-600 mb-6">Bilan multi-format · CAN 2025</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { label: 'Émissions live', value: '7', color: 'text-violet-400' },
+              { label: 'Émissions live', value: '7', color: 'text-pink-400' },
               { label: 'Capsules vidéo', value: '38', color: 'text-pink-400' },
               { label: 'TikToks / Reels', value: '48+', color: 'text-indigo-400' },
               { label: 'Photos / Visuels', value: '235', color: 'text-rose-400' },

@@ -58,7 +58,7 @@ export default function Navbar() {
             ))}
             <button
               onClick={() => scrollToSection('contact')}
-              className="ml-3 px-5 py-2.5 text-sm font-bold text-black bg-violet-500 hover:bg-violet-400 rounded-lg transition-colors"
+              className="ml-3 px-5 py-2.5 text-sm font-bold text-black bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-400 hover:to-blue-400 rounded-lg transition-colors"
             >
               Contact
             </button>
@@ -112,7 +112,7 @@ export default function Navbar() {
           <div className="p-4 border-t border-gray-800/50">
             <button
               onClick={() => scrollToSection('contact')}
-              className="w-full py-3 bg-violet-500 hover:bg-violet-400 text-black font-bold text-sm rounded-lg transition-colors"
+              className="w-full py-3 bg-gradient-to-r from-pink-500 to-blue-500 hover:from-pink-400 hover:to-blue-400 text-black font-bold text-sm rounded-lg transition-colors"
             >
               Nous contacter
             </button>

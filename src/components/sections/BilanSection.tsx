@@ -10,7 +10,7 @@ type Platform = 'youtube' | 'tiktok' | 'facebook' | 'snapchat';
 function StatCard({ value, label, desc, icon: Icon }: { value: string; label: string; desc?: string; icon: typeof BarChart3 }) {
   return (
     <div className="p-5 sm:p-6 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-gray-700 transition-colors">
-      <Icon className="w-4 h-4 text-violet-500/60 mb-3" />
+      <Icon className="w-4 h-4 text-pink-500/60 mb-3" />
       <p className="font-display text-2xl sm:text-3xl font-black text-white">{value}</p>
       <p className="text-sm font-semibold text-gray-300 mt-1">{label}</p>
       {desc && <p className="text-xs text-gray-600 mt-0.5">{desc}</p>}
@@ -26,7 +26,7 @@ function DemoBar({ label, percent }: { label: string; percent: number }) {
         <span className="text-sm font-bold text-white">{percent}%</span>
       </div>
       <div className="w-full h-1.5 bg-gray-800 rounded-full overflow-hidden">
-        <div className="h-full rounded-full bg-violet-500" style={{ width: `${percent}%` }} />
+        <div className="h-full rounded-full bg-pink-500" style={{ width: `${percent}%` }} />
       </div>
     </div>
   );
@@ -38,7 +38,7 @@ function GeoRow({ country, percent }: { country: string; percent: number }) {
       <span className="text-sm text-gray-300">{country}</span>
       <div className="flex items-center gap-3">
         <div className="w-24 h-1.5 bg-gray-800 rounded-full overflow-hidden">
-          <div className="h-full rounded-full bg-violet-500/60" style={{ width: `${percent}%` }} />
+          <div className="h-full rounded-full bg-pink-500/60" style={{ width: `${percent}%` }} />
         </div>
         <span className="text-sm font-bold text-white w-10 text-right">{percent}%</span>
       </div>
@@ -110,17 +110,17 @@ function TikTokTab() {
       </div>
       <div className="grid sm:grid-cols-3 gap-4">
         <div className="p-4 rounded-xl bg-gray-900/50 border border-gray-800 text-center">
-          <MessageCircle className="w-4 h-4 text-violet-500/60 mx-auto mb-2" />
+          <MessageCircle className="w-4 h-4 text-pink-500/60 mx-auto mb-2" />
           <p className="font-display text-xl font-black text-white">114K</p>
           <p className="text-xs text-gray-500">Commentaires</p>
         </div>
         <div className="p-4 rounded-xl bg-gray-900/50 border border-gray-800 text-center">
-          <Share2 className="w-4 h-4 text-violet-500/60 mx-auto mb-2" />
+          <Share2 className="w-4 h-4 text-pink-500/60 mx-auto mb-2" />
           <p className="font-display text-xl font-black text-white">232K</p>
           <p className="text-xs text-gray-500">Partages</p>
         </div>
         <div className="p-4 rounded-xl bg-gray-900/50 border border-gray-800 text-center">
-          <Bookmark className="w-4 h-4 text-violet-500/60 mx-auto mb-2" />
+          <Bookmark className="w-4 h-4 text-pink-500/60 mx-auto mb-2" />
           <p className="font-display text-xl font-black text-white">178K</p>
           <p className="text-xs text-gray-500">Enregistrements</p>
         </div>
@@ -172,7 +172,7 @@ function FacebookTab() {
             <div key={f.format} className="p-4 rounded-xl bg-gray-800/50 space-y-2">
               <div className="flex items-center justify-between">
                 <span className="font-display text-base font-bold text-white">{f.format}</span>
-                <span className="text-[10px] font-bold text-violet-400 bg-violet-500/10 px-2 py-0.5 rounded">{f.share}</span>
+                <span className="text-[10px] font-bold text-pink-400 bg-pink-500/10 px-2 py-0.5 rounded">{f.share}</span>
               </div>
               <p className="text-[10px] font-bold uppercase tracking-wider text-gray-600">{f.tag}</p>
               <p className="text-xs text-gray-400"><span className="text-white font-semibold">{f.interactions}</span> interactions</p>
@@ -212,7 +212,7 @@ function SnapchatTab() {
           <span className="text-white font-semibold">Découverte massive</span> — La majorité du trafic vient de non-abonnés (ex: 200K+ sur "Sénégalais"). Socle de 30K-80K spectateurs réguliers.
         </p>
         <p className="text-sm text-gray-400">
-          Snapchat est un levier puissant d'<span className="text-violet-400 font-semibold">acquisition</span> : canal idéal pour toucher de nouvelles audiences.
+          Snapchat est un levier puissant d'<span className="text-pink-400 font-semibold">acquisition</span> : canal idéal pour toucher de nouvelles audiences.
         </p>
       </div>
     </div>
@@ -234,7 +234,7 @@ export default function BilanSection() {
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent" />
 
       <div className="max-w-7xl mx-auto">
-        <p className="text-xs font-bold tracking-widest uppercase text-violet-400 mb-4">Bilan CAN 2025</p>
+        <p className="text-xs font-bold tracking-widest uppercase text-pink-400 mb-4">Bilan CAN 2025</p>
         <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white leading-tight mb-4">
           Ce qu'OCTOGOAL a réalisé
         </h2>
@@ -244,20 +244,20 @@ export default function BilanSection() {
 
         {/* Global summary */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
-          <div className="p-4 rounded-xl bg-violet-500/5 border border-violet-500/10 text-center">
-            <p className="font-display text-xl sm:text-2xl font-black text-violet-400">452</p>
+          <div className="p-4 rounded-xl bg-pink-500/5 border border-pink-500/10 text-center">
+            <p className="font-display text-xl sm:text-2xl font-black text-pink-400">452</p>
             <p className="text-xs text-gray-500">Publications</p>
           </div>
-          <div className="p-4 rounded-xl bg-violet-500/5 border border-violet-500/10 text-center">
-            <p className="font-display text-xl sm:text-2xl font-black text-violet-400">239M</p>
+          <div className="p-4 rounded-xl bg-pink-500/5 border border-pink-500/10 text-center">
+            <p className="font-display text-xl sm:text-2xl font-black text-pink-400">239M</p>
             <p className="text-xs text-gray-500">Impressions</p>
           </div>
-          <div className="p-4 rounded-xl bg-violet-500/5 border border-violet-500/10 text-center">
-            <p className="font-display text-xl sm:text-2xl font-black text-violet-400">134M</p>
+          <div className="p-4 rounded-xl bg-pink-500/5 border border-pink-500/10 text-center">
+            <p className="font-display text-xl sm:text-2xl font-black text-pink-400">134M</p>
             <p className="text-xs text-gray-500">Vues vidéo</p>
           </div>
-          <div className="p-4 rounded-xl bg-violet-500/5 border border-violet-500/10 text-center">
-            <p className="font-display text-xl sm:text-2xl font-black text-violet-400">8M</p>
+          <div className="p-4 rounded-xl bg-pink-500/5 border border-pink-500/10 text-center">
+            <p className="font-display text-xl sm:text-2xl font-black text-pink-400">8M</p>
             <p className="text-xs text-gray-500">Interactions</p>
           </div>
         </div>
@@ -270,7 +270,7 @@ export default function BilanSection() {
               onClick={() => setActive(t.key)}
               className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
                 active === t.key
-                  ? 'bg-violet-500/10 text-violet-400 border border-violet-500/20'
+                  ? 'bg-pink-500/10 text-pink-400 border border-pink-500/20'
                   : 'text-gray-500 hover:text-gray-300 border border-transparent hover:border-gray-800'
               }`}
             >

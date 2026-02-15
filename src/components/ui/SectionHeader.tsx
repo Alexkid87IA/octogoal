@@ -8,7 +8,7 @@ export default function SectionHeader({ badge, title, subtitle, gradient = false
       </span>
       <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.1]">
         {gradient ? (
-          <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
             {title}
           </span>
         ) : (
