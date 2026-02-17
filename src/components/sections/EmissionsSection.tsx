@@ -33,7 +33,7 @@ export default function EmissionsSection() {
             Le show qui a captivé la CAN 2025
           </h2>
           <p className="text-base text-gray-500 max-w-2xl mb-12">
-            Chaque émission de 60-90 min, diffusée en simultané sur YouTube, TikTok, Meta et Twitch. Un pic à 11 100 viewers simultanés sur TikTok.
+            Chaque émission de 60-90 min, diffusée en simultané sur YouTube, TikTok, Meta et Twitch. Un pic à 25 000 viewers simultanés sur TikTok.
           </p>
 
           {/* Player */}

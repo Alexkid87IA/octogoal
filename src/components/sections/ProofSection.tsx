@@ -182,7 +182,7 @@ export default function ProofSection() {
                     <p className="text-[10px] text-gray-500">Partages</p>
                   </div>
                   <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.05] text-center">
-                    <p className="font-display text-lg font-black text-white">11.1K</p>
+                    <p className="font-display text-lg font-black text-white">25K</p>
                     <p className="text-[10px] text-gray-500">Peak CCU Live</p>
                   </div>
                 </div>

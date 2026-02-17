@@ -217,7 +217,7 @@ function TikTokStats() {
         </h3>
         <div className="grid sm:grid-cols-3 gap-4 sm:gap-6">
           <StatBigCard icon={Eye} value="2,25M" label="Vues cumulées" sublabel="5 sessions live" gradient="from-cyan-400 to-pink-500" />
-          <StatBigCard icon={Users} value="11 100" label="Pic CCV" sublabel="Record Live 4" gradient="from-pink-500 to-cyan-400" />
+          <StatBigCard icon={Users} value="25 000" label="Pic CCV" sublabel="Record Live 4" gradient="from-pink-500 to-cyan-400" />
           <StatBigCard icon={TrendingUp} value="×5" label="Audience multipliée" sublabel="Du Live 1 au Live 5" gradient="from-cyan-500 to-purple-500" />
         </div>
       </div>
@@ -285,7 +285,7 @@ function TikTokStats() {
           <ul className="space-y-3 text-sm sm:text-base text-slate-300">
             <li className="flex items-start gap-3">
               <span className="w-2 h-2 mt-2 rounded-full bg-cyan-400 flex-shrink-0" />
-              <span><strong className="text-white">Viralité massive</strong> : Passage de 2,4K à 11,1K viewers entre le Live 2 et le Live 4</span>
+              <span><strong className="text-white">Viralité massive</strong> : Passage de 2,4K à 25K viewers entre le Live 2 et le Live 4</span>
             </li>
             <li className="flex items-start gap-3">
               <span className="w-2 h-2 mt-2 rounded-full bg-pink-400 flex-shrink-0" />
